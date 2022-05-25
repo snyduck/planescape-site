@@ -1,0 +1,61 @@
+.body {
+    background-image: url("images/lady_of_pain.jpg");
+    background: url(images/lady_of_pain.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.nav-link{
+    color: #b7410e;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2em;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    /* padding: 0em 3em; */
+}
+
+.navbar {
+    /* padding-top: 0%; */
+    background: rgba(255,255,255,0.2) !important;  
+    /* background: green; */
+}
+
+.container-fluid .navbar-brand {
+    color: #b7410e;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2em;
+    /* padding-right: 2em; */
+}
+
+.container-fluid .nav-link {
+    color: #b7410e;
+    font-size: 2em;
+}
+
+.container {
+    /* background: rgba(255,255,255,0.2) !important; */
+    margin-top: 8em;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 500%;
+}
+
+.main-content {
+    background-image: url("images/parch_bg.png");
+    padding: 3em;
+}
+
+.main-content h1 {
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.main-content p {
+    font-family: 'Macondo', cursive;
+    font-weight: bolder;
+    font-size: 2em;
+}
