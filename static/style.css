@@ -47,15 +47,33 @@
 
 .main-content {
     background-image: url("images/parch_bg.png");
+    opacity: 0.90;
     padding: 3em;
 }
 
 .main-content h1 {
     font-family: 'Cinzel Decorative', cursive;
+    opacity: 1;
+}
+
+.main-content pre {
+    font-family: 'Macondo', cursive;
+    font-weight: bolder;
+    font-size: 2em;
+    opacity: 1;
 }
 
 .main-content p {
     font-family: 'Macondo', cursive;
     font-weight: bolder;
     font-size: 2em;
+    opacity: 1;
+}
+
+.main-content img {
+    opacity: 0.95;
+}
+
+.charinfo {
+    justify-content: right;
 }

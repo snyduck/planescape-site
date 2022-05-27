@@ -19,14 +19,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Macondo&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="static\style.css">
-
+    <link rel="stylesheet" href="\static\style.css">
 </head>
 
 <body class="body">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Planescape Home</a>
+            <a class="navbar-brand" href="/">Planescape Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -35,7 +34,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Story</a>
+                        <a class="nav-link" href="/story">Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/deadbook">Deadbook</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -51,11 +53,10 @@
                             </li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                             {% for e in mylist %}
-                            <li><a class="dropdown-item" href="">{{ e }}</a></li>
+                            <li><a class="dropdown-item" href="/character/{{ e.split()[0] }}">{{ e }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
-
                 </ul>
             </div>
         </div>

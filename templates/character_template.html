@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h1>Welcome, berk</h1>
+
+<div class="row">
+    <div class="charinfo col">
+        <img src="{{ charinfo[0][3] }}" alt="">
+        <h3>Name:</h3>
+        <p> {{ charinfo[0][1] }}</p>
+        <h3>Bio</h3>
+        <pre>{{ charinfo[0][2] }}</pre>
+    </div>
+    <div class="charinfo col">
+    </div>
+</div>
+{% endblock %}
