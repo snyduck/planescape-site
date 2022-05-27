@@ -49,6 +49,7 @@
     background-image: url("images/parch_bg.png");
     opacity: 0.90;
     padding: 3em;
+    margin-bottom: 10rem;
 }
 
 .main-content h1 {
@@ -76,4 +77,16 @@
 
 .charinfo {
     justify-content: right;
+}
+.main-content .biotext {
+    font-size: 1.5em;
+}
+
+.main-content .charimgdiv {
+    display: flex;
+    align-items: right;}
+
+.main-content .charimg {
+    max-height: 475px;
+    opacity: 1;
 }
