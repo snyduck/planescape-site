@@ -1,13 +1,17 @@
 from flask import Flask, render_template
 from flask_mysqldb import MySQL
+from dotenv import load_dotenv
+load_dotenv('/home/miguel/my_project/.env')
+
+import os
 
 app = Flask(__name__)
 
 try:
-    app.config['MYSQL_HOST'] = '10.0.30.7'
-    app.config['MYSQL_USER'] = 'moonunit'
-    app.config['MYSQL_PASSWORD'] = 'CY8p!NC-*UY+89vb'
-    app.config['MYSQL_DB'] = 'planescape'
+    app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
+    app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
+    app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
+    app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
     mysql = MySQL(app)
 except:
     print("Failure")

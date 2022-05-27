@@ -55,6 +55,12 @@
 .main-content h1 {
     font-family: 'Cinzel Decorative', cursive;
     opacity: 1;
+    font-size: 3em;
+}
+
+.main-content h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    opacity: 1;
 }
 
 .main-content pre {
