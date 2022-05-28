@@ -7,7 +7,7 @@
     background-size: cover;
 }
 
-.nav-link{
+.nav-link {
     color: #b7410e;
     font-family: 'Cinzel Decorative', cursive;
     font-size: 2em;
@@ -19,7 +19,7 @@
 
 .navbar {
     /* padding-top: 0%; */
-    background: rgba(255,255,255,0.2) !important;  
+    background: rgba(255, 255, 255, 0.2) !important;
     /* background: green; */
 }
 
@@ -84,15 +84,23 @@
 .charinfo {
     justify-content: right;
 }
+
 .main-content .biotext {
     font-size: 1.5em;
 }
 
 .main-content .charimgdiv {
     display: flex;
-    align-items: right;}
+    align-items: right;
+}
 
 .main-content .charimg {
     max-height: 475px;
     opacity: 1;
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar-collapse .dropdown-menu {
+        margin-left: 5em;
+    }
 }
