@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_mysqldb import MySQL
 from dotenv import load_dotenv
-load_dotenv('/home/miguel/my_project/.env')
+load_dotenv('.env')
 
 import os
 
@@ -56,3 +56,18 @@ def story():
         charlist.append(i[0])
     cur.close()
     return render_template('story.html',mylist=charlist)
+
+@app.route("/deadbook")
+def deadbook():
+    charlist = []
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT charName FROM planescape.charInfo;')
+    rv = cur.fetchall()
+    for i in rv:
+        charlist.append(i[0])
+    cur.close()
+    return render_template('story.html',mylist=charlist)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
