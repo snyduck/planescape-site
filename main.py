@@ -1,20 +1,14 @@
 from flask import Flask, render_template
 from flask_mysqldb import MySQL
 from dotenv import load_dotenv
+from connect_planescape_db import *
 load_dotenv('.env')
 
 import os
 
 app = Flask(__name__)
 
-try:
-    app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
-    app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
-    app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
-    app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
-    mysql = MySQL(app)
-except:
-    print("Failure")
+mysql = connect_planescape_db(app)
 
 
 # Test list of names
@@ -55,7 +49,7 @@ def story():
     for i in rv:
         charlist.append(i[0])
     cur.close()
-    return render_template('story.html',mylist=charlist)
+    return render_template('story.html',mylist=sorted(charlist))
 
 @app.route("/deadbook")
 def deadbook():
@@ -66,7 +60,7 @@ def deadbook():
     for i in rv:
         charlist.append(i[0])
     cur.close()
-    return render_template('story.html',mylist=charlist)
+    return render_template('story.html',mylist=sorted(charlist))
 
 
 if __name__ == "__main__":
