@@ -1,10 +1,14 @@
+import os
 from flask import Flask, render_template
 from flask_mysqldb import MySQL
 from dotenv import load_dotenv
 from connect_planescape_db import *
+from get_charlist import get_charlist
+from get_charinfo import get_charinfo
+from get_deadbooklist import get_deadbooklist
+from get_deadbookcharinfo import get_deadbookcharinfo
 load_dotenv('.env')
 
-import os
 
 app = Flask(__name__)
 
@@ -12,55 +16,39 @@ mysql = connect_planescape_db(app)
 
 
 # Test list of names
-mylist = ["Garfield","Odie"]
+mylist = ["Garfield", "Odie"]
+
 
 @app.route("/")
 def hello_world():
-    #Grab character names from database
-    charlist = []
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT charName FROM planescape.charInfo;')
-    rv = cur.fetchall()
-    for i in rv:
-        charlist.append(i[0])
-    cur.close()
-    return render_template('index.html',mylist=sorted(charlist))
+    # Grab character names from database
+    charlist = get_charlist(mysql)
+    deadbooklist = get_deadbooklist(mysql)
+    return render_template('index.html', mylist=sorted(charlist),deadbooklist=sorted(deadbooklist))
+
 
 @app.route("/character/<string:charName>")
 def char_page(charName):
-    charlist = []
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT charName FROM planescape.charInfo;')
-    rv = cur.fetchall()
-    cur.execute(f'SELECT * FROM planescape.charInfo WHERE charName LIKE "{charName}%";')
-    charinfo = cur.fetchall()
-    for i in rv:
-        charlist.append(i[0])
+    charinfo = get_charinfo(charName=charName, mysql=mysql)
+    deadbooklist = get_deadbooklist(mysql)
+    charlist = get_charlist(mysql)
     print(charinfo)
-    cur.close()
-    return render_template('character_template.html',mylist=sorted(charlist),charinfo=charinfo)
+    return render_template('character_template.html', mylist=sorted(charlist),charinfo=charinfo,deadbooklist=sorted(deadbooklist))
+
 
 @app.route("/story")
 def story():
-    charlist = []
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT charName FROM planescape.charInfo;')
-    rv = cur.fetchall()
-    for i in rv:
-        charlist.append(i[0])
-    cur.close()
-    return render_template('story.html',mylist=sorted(charlist))
+    charlist = get_charlist(mysql)
+    deadbooklist = get_deadbooklist(mysql)
+    return render_template('story.html', mylist=sorted(charlist),deadbooklist=sorted(deadbooklist))
 
-@app.route("/deadbook")
-def deadbook():
-    charlist = []
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT charName FROM planescape.charInfo;')
-    rv = cur.fetchall()
-    for i in rv:
-        charlist.append(i[0])
-    cur.close()
-    return render_template('story.html',mylist=sorted(charlist))
+
+@app.route("/deadbook/<string:charName>")
+def deadbook(charName):
+    charlist = get_charlist(mysql)
+    deadbookcharinfo = get_deadbookcharinfo(mysql,charName=charName)
+    deadbooklist = get_deadbooklist(mysql)
+    return render_template('deadbook_template.html', mylist=sorted(charlist),deadbooklist=sorted(deadbooklist),deadbookcharinfo=deadbookcharinfo)
 
 
 if __name__ == "__main__":
