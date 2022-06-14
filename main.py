@@ -16,12 +16,14 @@ mysql = connect_planescape_db(app)
 # Test list of names
 mylist = ["Garfield", "Odie"]
 
+
 @app.route("/")
 def hello_world():
     # Grab character names from database
     charlist = get_charlist(mysql)
     deadbooklist = get_deadbooklist(mysql)
-    return render_template('index.html', mylist=sorted(charlist),deadbooklist=sorted(deadbooklist))
+    return render_template('index.html', mylist=sorted(charlist), deadbooklist=sorted(deadbooklist))
+
 
 @app.route("/character/<string:charName>")
 def char_page(charName):
@@ -29,25 +31,31 @@ def char_page(charName):
     deadbooklist = get_deadbooklist(mysql)
     charlist = get_charlist(mysql)
     print(charinfo)
-    return render_template('character_template.html', mylist=sorted(charlist),charinfo=charinfo,deadbooklist=sorted(deadbooklist))
+    return render_template('character_template.html', mylist=sorted(charlist), charinfo=charinfo, deadbooklist=sorted(deadbooklist))
+
 
 @app.route("/story")
 def story():
     charlist = get_charlist(mysql)
     deadbooklist = get_deadbooklist(mysql)
-    return render_template('story.html', mylist=sorted(charlist),deadbooklist=sorted(deadbooklist))
+    return render_template('story.html', mylist=sorted(charlist), deadbooklist=sorted(deadbooklist))
+
 
 @app.route("/deadbook/<string:charName>")
 def deadbook(charName):
     charlist = get_charlist(mysql)
-    deadbookcharinfo = get_deadbookcharinfo(mysql,charName=charName)
+    deadbookcharinfo = get_deadbookcharinfo(mysql, charName=charName)
     deadbooklist = get_deadbooklist(mysql)
-    return render_template('deadbook_template.html', mylist=sorted(charlist),deadbooklist=sorted(deadbooklist),deadbookcharinfo=deadbookcharinfo)
+    return render_template('deadbook_template.html', mylist=sorted(charlist), deadbooklist=sorted(deadbooklist), deadbookcharinfo=deadbookcharinfo)
 
 # 404 app handling
+
+
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    charlist = get_charlist(mysql)
+    deadbooklist = get_deadbooklist(mysql)
+    return render_template('404.html', mylist=sorted(charlist), deadbooklist=sorted(deadbooklist)), 404
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
