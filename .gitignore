@@ -5,3 +5,5 @@ __pycache__
 *.png
 *.gif
 .env
+planescape.ini
+wsgi.py

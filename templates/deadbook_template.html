@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h1>{{ deadbookcharinfo[0][4]}}</h1>
+
+<div class="row">
+    <div class="deadbookcharinfo col">
+        <h3>Name</h3>
+        <p> {{ deadbookcharinfo[0][2] }}</p>
+        <h3>Faction</h3>
+        <p>{{ deadbookcharinfo[0][5]}}</p>
+        <h3>Bio</h3>
+        <p class="biotext">{{ deadbookcharinfo[0][3] }}</p>
+        <h3>Epitaph</h3>
+        <p class="biotext">{{ deadbookcharinfo[0][8] }}</p>
+    </div>
+    <div class="charinfo col charimgdiv">
+        <img src="/static/images/{{ deadbookcharinfo[0][6] }}.jpg" class="charimg" alt="">
+    </div>
+</div>
+{% endblock %}
