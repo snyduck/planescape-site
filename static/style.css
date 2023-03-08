@@ -10,7 +10,7 @@
 .nav-link {
     color: #b7410e;
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em;
+    font-size: 2rem;
     margin: 0 1.5rem;
     /* width: 50%; <-- Broke positioning*/
     text-align: center;
@@ -18,7 +18,6 @@
 }
 
 .navbar {
-    /* padding-top: 0%; */
     background: rgba(255, 255, 255, 0.2) !important;
     /* background: green; */
 }
@@ -26,13 +25,13 @@
 .container-fluid .navbar-brand {
     color: #b7410e;
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em;
+    font-size: 2rem;
     /* padding-right: 2em; */
 }
 
 .container-fluid .nav-link {
     color: #b7410e;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 .container {
