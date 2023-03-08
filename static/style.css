@@ -11,10 +11,10 @@
     color: #b7410e;
     font-family: 'Cinzel Decorative', cursive;
     font-size: 2em;
-    margin: auto;
-    width: 50%;
+    margin: 0 1.5rem;
+    /* width: 50%; <-- Broke positioning*/
     text-align: center;
-    /* padding: 0em 3em; */
+    /* padding: 0em 3rem; */
 }
 
 .navbar {
