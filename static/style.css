@@ -102,4 +102,7 @@
     .navbar-collapse .dropdown-menu {
         margin-left: 5em;
     }
+    h1 {
+        font-size: 3000px;
+    }
 }

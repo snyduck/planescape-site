@@ -32,7 +32,9 @@
   <body class="body">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="https://darkwebwarlocks.com/">Darkweb Warlocks</a>
+        <a class="navbar-brand" href="https://darkwebwarlocks.com/"
+          >Darkweb Warlocks</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -63,13 +65,20 @@
                 Characters
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for e in mylist %}
                 <li>
-                  <a class="dropdown-item" href="/character/{{ e.split()[0] }}"
-                    >{{ e }}</a
+                  <a class="dropdown-item" href="/character/anna">Anna Belle</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/character/elle">Elle Woods</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/character/reinhardt"
+                    >Reinhardt Lerxst Zivojinovic</a
                   >
                 </li>
-                {% endfor %}
+                <li>
+                  <a class="dropdown-item" href="/character/rhuric">Rhuric</a>
+                </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -84,13 +93,11 @@
                 Deadbook
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for e in deadbooklist %}
                 <li>
-                  <a class="dropdown-item" href="/deadbook/{{ e.split()[0] }}"
-                    >{{ e }}</a
+                  <a class="dropdown-item" href="/character/gorruck"
+                    >Gorruck</a
                   >
                 </li>
-                {% endfor %}
               </ul>
             </li>
           </div>
