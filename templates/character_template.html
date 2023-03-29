@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
-<h1>{{ charinfo[0][4]}}</h1>
+<h1>{{ charinfo.charBlurb }}</h1>
 
 <div class="row">
     <div class="charinfo col">
         <h3>Name</h3>
-        <p> {{ charinfo[0][2] }}</p>
+        <p> {{ charinfo.charName }}</p>
         <h3>Faction</h3>
-        <p>{{ charinfo[0][5]}}</p>
+        <p>{{ charinfo.charFaction }}</p>
         <h3>Bio</h3>
-        <p class="biotext">{{ charinfo[0][3] }}</p>
+        <p class="biotext">{{ charinfo.charBio }}</p>
     </div>
     <div class="charinfo col charimgdiv">
-        <img src="/static/images/{{ charinfo[0][6] }}.jpg" class="charimg" alt="">
+        <img src="/static/images/{{ charinfo.charImg }}.jpg" class="charimg" alt="">
     </div>
 </div>
 {% endblock %}
